@@ -1,0 +1,104 @@
+nodejs 설치 16.18.0 LTS 버전
+
+개발환경 셋팅
+
+
+작업폴더 - 터미널 열기 
+npx create-react-app blog
+npm install styled-components (styled-components 라이브러리다운) => import styled from 'styled-components'
+npm install axios (ajax 사용시 axios 외부 라이브러리 사용하기)
+
+vscode로 진행
+vscode 내 작업폴더 터미널에서 npm start 입력 -> 미리보기 
+
+
+
+
+***** 작업폴더 git 연동 방법
+
+작업폴더 - 터미널 열기
+git config --global user.email "lovesay00@naver.com"
+git config --global user.name "김재만"
+
+
+
+
+<jsx 문법>
+
+
+html을 js 파일내에서 쉽게 사용할수 있게 하는 문법
+
+{} 중괄호 안에 변수를 넣어 변수를 다양하게 활용할 수 있음.
+
+useState 를 사용하여 변수 지정해줘야 html 재렌더링으로 html 변수를 바꿀 필요가 없음.
+
+그냥 일반 변수는 재렌더링 x html을 고쳐야함
+
+
+<component 문법>
+1. function 만들기
+2. return() 안에 html 담기
+3. <함수명></함수명> 쓰기
+
+- 반복적인 html 축약할 때 쓰기
+- 큰 페이지들 
+- 자주 변경되는 것들
+- 단 useState 사용 하는것에 제한이 있음.
+
+
+[동적 UI 만드는 step]
+1. html css로 미리 디자인 완성
+2. UI의 현재상태를 state로 저장
+3. state에 따라 UI가 어떻게 보일지 작성
+
+[자식이 부모의 state 가져다쓰고 싶을 때는 props]
+자식 컴포넌트가 부모 컴포넌트에 있던 state를 쓰고 싶으면 
+
+그냥 쓰면 안되고 props로 전송해서 써야합니다. 
+
+function 이 다를경우 더 큰 function 에서 -> 낮은 function 으로
+
+
+function App (){
+
+  let [modal, setModal] = useState(false);
+  return (
+    <div>
+      (생략)
+      <button onClick={ ()=>{ setModal(!modal) } }> {글제목[0]} </button>
+      { 
+         modal == true ? <Modal></Modal> : null
+      }
+    </div>
+  )
+}
+
+
+[react-route-dom => 여러 상세페이지 만들떄 사용하는 라이브러리]
+
+
+[컴포넌트의 Lifecycle]
+페이지에 장착(mount)
+업데이트 (update)
+필요없으면 제거 (unmount)
+
+useEffect(()=>{
+
+})
+
+
+[AJAX로 GET/POST요청하려면 방법 3개 중 택1 하면 됩니다.]
+
+1. XMLHttpRequest라는 옛날 문법 쓰기
+
+2. fetch() 라는 최신 문법 쓰기
+
+3. axios 같은 외부 라이브러리 쓰기 
+
+3번이 가장 편하니 3번을 써봅시다. 
+
+npm install axios 
+
+
+--------------------------------용어--------------------------------
+jsx => javascript 에서 html 을 보다 쉽게 사용하기 위해 만들어짐

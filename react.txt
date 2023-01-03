@@ -1,0 +1,72 @@
+0. 설정전
+
+google Roboto 폰트가 이쁨.
+
+
+1. 개발환경 세팅 (기본적으로 node.js는 설치되었다고 가정하고 시작함 - 제발 최신 버전)
+
+내가 원하는 폴더 안에 
+
+npx create-react-app [project명] => project명 으로 프로젝트 react 생성
+npx create-react-app [project명] --template typescript => project명 으로 프로젝트 typescript react 생성
+
+app.js or app.tsx 에 프로젝트 시작.
+
+> node_modules => 라이브러리 코드 보관함
+> public => html , image 파일들을 잠시 보관하고 싶을때 보관함.
+> src => 메인 소스코드 보관함.
+
+
+
+1-2. 리액트 라우터 세팅, 사용 ( 라우터란 ? 하위 url 무한생성가능 ex. www.blog.com/detail )
+
+react-router-dom 라이브러리 사용
+
+npm install react-router-dom@6 ( 현재 6버전이 제일 최신 만약 다른 최신 버전있으면 그걸 사용 )
+
+
+이후 index.js 로 가서 아래처럼 BrowserRouter 감싸기
+
+import { BrowserRouter } from "react-router-dom";
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+  </React.StrictMode>
+); 
+
+1-3. 리액트 redux 세팅, 사용 ( 리덕스란 ? 리액트에서 데이터 공용 보관함 같은 느낌 props 전송이 필요x)
+
+npm install @reduxjs/toolkit react-redux  ( redux toolkit 이라는 라이브러리로 redux 개선버전)
+
+package.json 파일에서 "react", "react-dom" 버전이 18.1.0 이상이여야함.
+
+
+
+세팅은 
+1) src 폴더안에 store.js 파일을 만들어서 안에 
+
+import { configureStore } from '@reduxjs/toolkit'
+
+export default configureStore({
+  reducer: { }
+}) 
+
+2) index.js 파일가서 provider import 후 provider로 app 감싸기
+
+import { Provider } from "react-redux";
+import store from './store.js'
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
+); 

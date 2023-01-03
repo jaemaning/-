@@ -1,0 +1,16 @@
+1. nodejs 설치
+
+
+2. vscode 터미널 내에서 npm install -g @vue/cli
+
+
+3. vscode extensions 중에 (vetur , HTML CSS Support , Vue 3 snippets) 설치
+
+
+4. 터미널 vue create 프로젝트명 - 하위폴더로 작업폴더(프로젝트명)으로 만들어짐.
+
+
+5. app.vue 만 사용
+
+
+6. 터미널 npm run serve 로 미리보기
